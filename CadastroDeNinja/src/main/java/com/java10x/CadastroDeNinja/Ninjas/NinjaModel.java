@@ -13,17 +13,22 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public abstract class NinjaModel {
+public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long identificador;
 
     private String name;
+
+    @Column(name = "username", unique = true)
     private String username;
+
+    @Column(name = "mail", unique = true)
     private String mail;
-    private char sex;
-    private short age;
+
+    private String sex;
+    private int age;
 
     // ligar tabelas
     @ManyToOne

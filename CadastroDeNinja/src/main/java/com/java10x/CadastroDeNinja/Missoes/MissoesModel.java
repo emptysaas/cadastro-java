@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public abstract class MissoesModel {
+public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,6 @@ public abstract class MissoesModel {
     private String missao;
     private String dificuldade;
 
-    @OneToMany(mappedBy = "missao")
+    @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninja;
 }
