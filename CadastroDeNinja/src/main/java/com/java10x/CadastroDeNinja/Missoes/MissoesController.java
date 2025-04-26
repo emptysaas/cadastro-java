@@ -1,16 +1,26 @@
 package com.java10x.CadastroDeNinja.Missoes;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/missoes")
 public class MissoesController {
 
-    @GetMapping(name = "/missoes")
-    public String missoes(){
-        return  "Olá";
-    }
+    // CRUD
+
+    @PostMapping("/add")
+    public String add() { return "Add"; }
+
+    @GetMapping("/view")
+    public String read() { return "Read"; }
+
+    @GetMapping("/viewID")
+    public String readID() { return "viewID"; }
+
+    @PutMapping("/update")
+    public String update() { return "update"; }
+
+    @DeleteMapping("/delete")
+    public String delete() { return "delete"; }
 
 }
