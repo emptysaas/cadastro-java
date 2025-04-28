@@ -2,17 +2,27 @@ package com.java10x.CadastroDeNinja.Ninjas;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/usuario")
 public class NinjaController {
 
-  // CRUD
+    private NinjaService ninjaService;
+
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
+
+    // CRUD
 
     @PostMapping("/add")
     public String add() { return "Add"; }
 
     @GetMapping("/view")
-    public String read() { return "Read"; }
+    public List<NinjaModel> ninjaModels(){
+        return ninjaService.read();
+    }
 
     @GetMapping("/viewID")
     public String readID() { return "viewID"; }
