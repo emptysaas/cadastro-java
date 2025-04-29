@@ -14,22 +14,33 @@ public class NinjaController {
         this.ninjaService = ninjaService;
     }
 
-    // CRUD
-
+    // add
     @PostMapping("/add")
-    public String add() { return "Add"; }
+    public NinjaModel add(@RequestBody NinjaModel model) {
+        return ninjaService.add(model);
+    }
 
+    // view
     @GetMapping("/view")
     public List<NinjaModel> ninjaModels(){
         return ninjaService.read();
     }
 
-    @GetMapping("/viewID")
-    public String readID() { return "viewID"; }
+    // viewID
+    @GetMapping("/viewID/{identificador}")
+    public NinjaModel readID(@PathVariable Long identificador) {
+        return  ninjaService.readID(identificador);
+    }
 
-    @PutMapping("/update")
-    public String update() { return "update"; }
+    // put
+    @PutMapping("/update/{identificador}")
+    public NinjaModel update(@PathVariable Long identificador, @RequestBody NinjaModel upModel) {
+        return ninjaService.update(identificador, upModel);
+    }
 
-    @DeleteMapping("/delete")
-    public String delete() { return "delete"; }
+    // delete
+    @DeleteMapping("/delete/{identificador}")
+    public void delete(@PathVariable Long identificador) {
+        ninjaService.delete(identificador);
+    }
 }
