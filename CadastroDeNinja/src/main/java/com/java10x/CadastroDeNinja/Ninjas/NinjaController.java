@@ -16,8 +16,8 @@ public class NinjaController {
 
     // add
     @PostMapping("/add")
-    public NinjaModel add(@RequestBody NinjaModel model) {
-        return ninjaService.add(model);
+    public NinjaDTO add(@RequestBody NinjaDTO ninjaDTO) {
+        return ninjaService.add(ninjaDTO);
     }
 
     // view
