@@ -20,22 +20,22 @@ public class NinjaController {
         return ninjaService.add(ninjaDTO);
     }
 
-    // view
-    @GetMapping("/view")
-    public List<NinjaModel> ninjaModels(){
+    // read
+    @GetMapping("/read")
+    public List<NinjaDTO> ninjaModels(){
         return ninjaService.read();
     }
 
-    // viewID
-    @GetMapping("/viewID/{identificador}")
-    public NinjaModel readID(@PathVariable Long identificador) {
+    // read
+    @GetMapping("/readID/{identificador}")
+    public NinjaDTO readID(@PathVariable Long identificador) {
         return  ninjaService.readID(identificador);
     }
 
     // put
     @PutMapping("/update/{identificador}")
-    public NinjaModel update(@PathVariable Long identificador, @RequestBody NinjaModel upModel) {
-        return ninjaService.update(identificador, upModel);
+    public NinjaDTO update(@PathVariable Long identificador, @RequestBody NinjaDTO putModel) {
+        return ninjaService.update(identificador, putModel);
     }
 
     // delete
