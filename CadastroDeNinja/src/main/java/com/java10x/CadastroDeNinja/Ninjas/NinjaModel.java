@@ -29,8 +29,8 @@ public class NinjaModel {
 
     private String sex;
     private int age;
+    private String rank;
 
-    // ligar tabelas
     @ManyToOne
     @JoinColumn(name = "missoes_id")
     private MissoesModel missoes;
